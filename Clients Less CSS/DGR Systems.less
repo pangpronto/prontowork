@@ -14,7 +14,7 @@ input, button, select, textarea, body, .lead, .font-body {
 h1, h2, h3, h4, h5, h6, .font-heading {
   &, &.h1, &.h2, &.h3, &.h4, &.h5, &.h6 {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
+    font-weight: 300;
     line-height:@line-height-heading;
     strong, &.bold, .bold {
       font-weight:600;
@@ -356,6 +356,10 @@ Custom Fonts
   line-height: 1.2;
 }
 
+.weight-500 {
+  font-weight:500;
+}
+
 /*-------------------------------------------*\
 Buttons
 \*-------------------------------------------*/
@@ -366,7 +370,7 @@ Buttons
   .btn(transparent);
   border:2px solid @baseColor;
   color: @baseColor;
-  font-weight: 500;
+  font-weight: 600;
   border-radius: 0;
   font-size: 15px;
   padding:10px 12px;
@@ -475,6 +479,56 @@ ul.top-nav-r1 {
 Hompage CSS
 \*-------------------------------------------*/
 
+/* HP Banner */
+
+.logo-banner-wrapper {
+  background-image: url('/wp-content/uploads/sites/233/2018/12/img-banner-blue-shapes.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+  background-position: left center;
+  margin-top:30px;
+  .logo-item {
+    margin-top: -30px;
+    img {
+      max-width:240px;
+    }
+    .logo-banner-custom-size {
+      max-width:130px;
+    }
+  }
+  .row {
+    min-height: 249px;
+  }
+}
+
+.hp-banner-r1 {
+  padding: 0;
+  overflow: hidden;
+  min-height: 600px;
+  display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  > .container {
+    max-width: 100%;
+    padding: 0;
+    width: 100%;
+  }
+}
+
+
+/* HP Services */
+
+.hp-services {
+  img {
+    max-width:100px;
+    margin-bottom:25px;
+  }
+}
 
 /*-------------------------------------------*\
 Footer
@@ -496,6 +550,16 @@ Footer
   }
 }
 
+.footer-phone ul li {
+  display: inline-block;
+}
+
+.footer-phone ul li + li:before {
+  content: "|";
+  vertical-align: top;
+  padding: 0 5px;
+}
+
 .main-footer-r1 .well-form {
   background: #262F63;
   border-color: #262F63;
@@ -507,14 +571,17 @@ Footer
   width:100%;
   max-width:360px;
   &:after {
-    content:'';
-    width: 0;
-    height: 0;
-    position:absolute;
-    bottom:-60px;
-    left:0;
-    border-top: 60px solid #262F63;
-    border-right: 360px solid transparent;
+    content: '';
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+    background: #262F63;
+    transform-origin: bottom left;
+    -ms-transform: skew(0deg, -9.5deg);
+    -webkit-transform: skew(0deg, -9.5deg);
+    transform: skew(0deg, -9.5deg);
   }
   .gform_wrapper .gfield .gfield_label {
     font-weight: 300;
@@ -593,6 +660,21 @@ Media Queries
   header nav[role="navigation"] {
     display: none;
   }
+  .main-footer-r1 .row {
+    margin-top: 50px;
+  }
+  .social-footer {
+    margin-bottom:30px;
+  }
+  .footer-nav {
+    margin-bottom: 20px;
+  }
+  .footer-logo {
+    max-width: 130px;
+  }
+  .main-footer-r1 .well-form {
+    margin-top: 0px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -610,9 +692,48 @@ Media Queries
     float: none;
     width:100%
   }
+  header img.brand {
+    max-width: 90px;
+  }
+  div div > footer h1, h1, .h1 {
+    font-size: 28px;
+  }
+  .lead {
+    font-size: 18px;
+  }
+  .logo-banner-wrapper {
+    padding: 0 15px;
+  }
+  .logo-banner-wrapper .row {
+    min-height: 150px;
+  }
+  .logo-banner-wrapper .logo-item .logo-banner-custom-size {
+    max-width: 60px;
+  }
+  .logo-banner-wrapper .logo-item {
+    padding: 0 5px;
+  }
+  div div > footer h2, h2, .h2 {
+    font-size: 21px;
+  }
+  .main-footer-r1 .well-form {
+    margin: 0 auto 0;
+  }
+  .bottom-footer {
+    font-size: 11px;
+  }
+  .footer-phone ul li {
+    display:block;
+  }
+  .footer-phone ul li + li:before {
+    display:none;
+  }
 }
 
 /*-------------------------------------------*\
 Global CSS 
 \*-------------------------------------------*/
 
+hr {
+  border-color:#CCCCCC;
+}
