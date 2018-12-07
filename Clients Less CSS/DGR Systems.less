@@ -1,0 +1,487 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,500,500i,600,600i,700,700i');
+
+input, button, select, textarea, body, .lead, .font-body {
+	&, &.h1, &.h2, &.h3, &.h4, &.h5, &.h6,
+	.h1, .h2, .h3, .h4, .h5, .h6 {
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 300;
+		line-height:@line-height-body;
+		strong, &.bold, .bold {
+			font-weight:700;
+		}
+	}
+}
+h1, h2, h3, h4, h5, h6, .font-heading {
+	&, &.h1, &.h2, &.h3, &.h4, &.h5, &.h6 {
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 300;
+		line-height:@line-height-heading;
+		strong, &.bold, .bold {
+			font-weight:700;
+		}
+	}
+}
+/*-------------------------------------------*\
+  Main Variables
+\*-------------------------------------------*/
+
+@baseColor : #262F63;
+@buttonMain : #ffffff;
+@buttonCustom : transparent ;
+@line-height-heading: 1.3;
+@line-height-body: 1.5;
+@pixelfont: 15px;
+@h1 : 48px;
+@h2 : 36px;
+@h3 : 24px;
+@h4 : 20px;
+@h5 : 15px;
+@h6 : 13px;
+@lead: 24px;
+@accent2 : #454545;
+@accent3 : #6972A2;
+@accent4 : #404040;
+@accent5 : #EDEDED;
+
+/* Do not touch */
+@darkColor : #000; 
+@lightColor : #fff;
+
+/*-------------------------------------------*\
+  Helper function
+\*-------------------------------------------*/
+
+.mixin (@a) when (lightness(@a) >= 66%) {
+    color: @darkColor;
+}
+.mixin (@a) when not (lightness(@a) >= 66%) {
+    color: @lightColor;
+}
+::selection {
+    background: @baseColor;
+}
+::-moz-selection {
+    background: @baseColor;
+}
+
+.complementary(@_a){
+    background-color: @_a;
+    .mixin(@_a);
+}
+.btn(@b:@buttonMain){
+    border-color: @b;
+    .complementary(@b);
+    text-shadow: none;
+ 
+    &:hover,.disabled, [disabled]{
+        background-color: darken(@b, 4%);
+        border-color: darken(@b, 4%);
+        .mixin(@b);
+    }
+ 
+    &:active, .active, &:focus, .focus{
+        background-color: darken(@b, 8%);
+        border-color: darken(@b, 8%);
+        .mixin(@b);
+  }
+ 
+}
+.element(@_arg, @font:@_arg) {
+     a:hover,
+     .sidebar-content .nav.nav-tabs.nav-stacked .parent ul a.selected,
+     .sidebar-content .nav li li a:hover,
+     div[role="complementary"] div > ul > li:hover{
+            color:darken(@font,8%)
+     }
+     a,
+    .nav-tabs > .active > a,
+    .nav-tabs > .active > a:hover,
+    .nav-tabs > .active > a:focus,
+    .nav li a:hover,
+    .nav li a:focus,
+    .navbar .nav > li > a:focus,
+    .navbar .nav > li > a:hover,
+    .pagination ul > li > a:hover,
+    .pagination ul > li > a:focus,
+    .pagination ul > .active > a,
+    .pagination ul > .active > span,
+    nav[role="navigation"] .nav-normal > .active > a,
+    nav[role="navigation"] .nav-normal li a:hover,
+    nav[role="navigation"] .nav-pills-square > .active > a,
+    nav[role="navigation"] .nav-bar > li > a:hover,
+    nav[role="navigation"] .nav-bar > li > a:focus,
+    nav[role="navigation"] .nav-bar > .active > a,
+    nav[role="navigation"] .nav-bar-top > .active > a,
+    nav[role="navigation"] .nav-bar-top > li > a:hover,
+    nav[role="navigation"] .nav-bar-underline > .active > a,
+    nav[role="navigation"] .nav-underline > .active > a,
+    nav[role="navigation"] .nav-underline > li > a:hover,
+    nav[role="navigation"] .nav-separator > .active > a,
+    nav[role="navigation"] .nav-separator > li > a:hover,
+    .sidebar-content .nav a.active,
+    div[role="complementary"] div > ul > li:active,
+    .sidebar-content .nav li a:hover,
+    .sidebar-content .nav li a:focus {
+            color: @font;
+    }
+
+    .nav a:hover .caret {
+      border-bottom-color: @font;
+      border-top-color: @font;
+    }
+    .nav-tabs > li > a:hover,
+    .nav-tabs > li > a:focus,
+    .navbar .nav > .active > a,
+    .navbar .nav > .active > a:hover,
+    .navbar .nav > .active > a:focus,
+    .nav-pills > .active > a,
+    .nav-pills > .active > a:hover,
+    .nav-pills > .active > a:focus,
+    .nav-tabs.nav-stacked > .active > a,
+    .nav-tabs.nav-stacked > .active > a:hover,
+    .nav-tabs.nav-stacked > .active > a:focus,
+    .nav-list > .active > a,
+    .nav-list > .active > a:hover,
+    .nav-list > .active > a:focus,
+    .grid li a:hover img,
+    textarea:focus,
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="datetime"]:focus,
+    input[type="datetime-local"]:focus,
+    input[type="date"]:focus,
+    input[type="month"]:focus,
+    input[type="time"]:focus,
+    input[type="week"]:focus,
+    input[type="number"]:focus,
+    input[type="email"]:focus,
+    input[type="url"]:focus,
+    input[type="search"]:focus,
+    input[type="tel"]:focus,
+    input[type="color"]:focus,
+    .uneditable-input:focus,
+    .gform_wrapper li.gfield_error input[type="text"]:focus,
+    .gform_wrapper li.gfield_error input[type="url"]:focus,
+    .gform_wrapper li.gfield_error input[type="email"]:focus,
+    .gform_wrapper li.gfield_error input[type="tel"]:focus,
+    .gform_wrapper li.gfield_error input[type="number"]:focus,
+    .gform_wrapper li.gfield_error input[type="password"]:focus,
+    .gform_wrapper li.gfield_error textarea:focus{
+        border-color: @_arg;
+  }
+  .navbar .nav > .active > a,
+  .navbar .nav > .active > a:hover,
+  .navbar .nav > .active > a:focus,
+  .nav-pills > .active > a,
+  .nav-pills > .active > a:hover,
+  .nav-pills > .active > a:focus,
+  .nav-tabs.nav-stacked > .active > a,
+  .nav-tabs.nav-stacked > .active > a:hover,
+  .nav-tabs.nav-stacked > .active > a:focus,
+  .nav-list > .active > a,
+  .nav-list > .active > a:hover,
+  .nav-list > .active > a:focus,
+  .dropdown-menu > li > a:hover,
+  .dropdown-menu > li > a:focus,
+  .dropdown-submenu:hover > a,
+  .dropdown-submenu:focus > a,
+  .dropdown-menu > .active > a,
+  .dropdown-menu > .active > a:hover,
+  .dropdown-menu > .active > a:focus,
+  .progress .bar,
+  .progress-striped .bar,
+  .progress-info.progress-striped .bar, .progress-striped .bar-info,
+   nav[role="navigation"] .nav-pills-square li a:hover{
+        background-color:  @_arg;
+  }
+
+  .form-control:focus{
+        border-color: @_arg;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(red(@_arg),green(@_arg), blue(@_arg), 0.6);
+  }
+
+  .pagination > .active > a, 
+  .pagination > .active > span, 
+  .pagination > .active > a:hover, 
+  .pagination > .active > span:hover, 
+  .pagination > .active > a:focus, 
+  .pagination > .active > span:focus{
+        background-color: @_arg;
+        border-color: @_arg;
+  }
+
+}
+
+.home a {
+  text-decoration: none;
+}
+
+.transition(@property: all; @duration: .3s; @function: ease; @delay: 0s) {
+  -moz-transition: @property @duration @function @delay;
+  -o-transition: @property @duration @function @delay;
+  -ms-transition: @property @duration @function @delay;
+  transition: @property @duration @function @delay;
+}
+
+body, 
+p, 
+.gform_body .gfield input, 
+.gform_body .gfield textarea, 
+.gform_body .gfield select {
+    font-size: @pixelfont;
+    line-height: @line-height-body;
+}
+h1, h2, h3, h4, h5, h6 {
+    line-height: @line-height-heading;
+}
+div div > footer h1,
+h1,
+.h1 {
+    font-size: @h1;
+}
+div div > footer h2,
+h2,
+.h2 {
+    font-size: @h2;
+}
+div div > footer h3,
+h3,
+.h3 {
+    font-size: @h3;
+}
+div div > footer h4,
+h4,
+.h4 {
+    font-size: @h4;
+}
+div div > footer h5,
+h5,
+.h5 {
+    font-size: @h5;
+}
+div div > footer h6,
+h6,
+.h6 {
+    font-size: @h6;
+}
+.lead {
+    font-size: @lead;
+    line-height: @line-height-body;
+}
+
+/* Scrolltotop */
+
+#topcontrol {
+    background-color: rgba(0, 0, 0, 0.1);
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    border-radius: 3px;
+    color: #ffffff;
+    height: 48px;
+    line-height: 55px;
+    margin: 0 15px 15px 0;
+    text-align: center;
+    width: 48px;
+    z-index: 10000;
+}
+#scrolltotop:before {
+    border-color: rgba(255, 255, 255, 0) rgba(255, 255, 255, 0) #ffffff;
+    border-image: none;
+    border-style: solid;
+    border-width: 10px;
+    content: "";
+    height: 0;
+    left: 28%;
+    position: absolute;
+    top: 17%;
+    width: 0;
+}
+
+#topcontrol:hover{
+    background-color: darken(@baseColor,10%);
+}
+
+/*-------------------------------------------*\
+  Accent Colors 
+\*-------------------------------------------*/
+
+.accent {
+    color: @baseColor !important;
+}
+.accent2 {
+    color: @accent2 !important;
+}
+.accent3 {
+    color: @accent3 !important;
+}
+.accent4 {
+    color: @accent4 !important;
+}
+.accent5 {
+    color: @accent5 !important;
+}
+
+/*-------------------------------------------*\
+  Custom Fonts
+\*-------------------------------------------*/
+
+.font-custom1 {
+    font-size: 18px;
+}
+.font-custom2 {
+    font-size: 16px;
+}
+.line-height-small {
+  line-height: 1.2;
+}
+
+/*-------------------------------------------*\
+  Buttons
+\*-------------------------------------------*/
+
+.element(@baseColor);
+
+.btn-primary{
+    .btn(transparent);
+    border:2px solid @baseColor;
+    color: @baseColor;
+    font-weight: 500;
+    border-radius: 0;
+    font-size: 15px;
+    &:hover,&:active,&:focus { 
+      color:@lightColor;
+      background-color: @baseColor;
+      border-color: @baseColor;
+    }
+}
+
+.btn-custom {
+    .btn(transparent);
+    border:2px solid #fff;
+    color: #fff;
+    &:hover,&:active,&:focus { 
+      color:@baseColor;
+      background-color: #ffffff;
+      border-color: #ffffff;
+    }
+}
+
+.btn-custom2 {
+    .btn(@buttonMain);
+    color: @baseColor;
+    &:hover,&:active,&:focus { 
+      color: @baseColor;
+    }
+}
+
+/*-------------------------------------------*\
+  Header
+\*-------------------------------------------*/
+
+.home .header-shadow {
+	box-shadow: none;
+}
+
+header img.brand {
+  width: 100%;
+	max-width: 250px;
+}
+
+header nav[role="navigation"] > ul:first-child {
+	margin-top: 0;
+}
+
+header nav[role="navigation"] > ul > li {
+    > a {
+        color: @accent2;
+        font-size: 15px;
+        padding:0;
+        &.dropdown-toggle .caret {
+            border-bottom-color: @accent2;
+            border-top-color: @accent2;
+        }
+    }
+    &:hover, &:active, &:focus, &.active {
+        > a {
+            color: @baseColor;
+            background-color: transparent;
+            &.dropdown-toggle .caret {
+                border-bottom-color: @baseColor;
+                border-top-color: @baseColor;
+            }
+        }
+    }
+}
+
+.nav li a:hover, 
+.nav li a:focus {
+    background-color: transparent;
+    border-color: transparent;
+    color: @baseColor;
+}
+
+nav[role="navigation"] ul > li .dropdown-menu > li:hover > a,
+nav[role="navigation"] ul > li .dropdown-menu > li > a:hover {
+    background: none repeat scroll 0 0 @baseColor;
+    color: #fff;
+}
+
+header nav[role="navigation"] > ul > li + li {
+	margin-left: 20px;
+}
+
+
+/*-------------------------------------------*\
+  Hompage CSS
+\*-------------------------------------------*/
+
+
+/*-------------------------------------------*\
+  Footer
+\*-------------------------------------------*/
+
+
+
+/*-------------------------------------------*\
+  Media Queries
+\*-------------------------------------------*/
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    header nav[role="navigation"] .nav > li > a {
+        padding: 10px 8px;
+        font-size: 15px;
+    }
+}
+
+@media  (max-width: 991px) {
+	header nav[role="navigation"] {
+        display: none;
+	}
+}
+
+@media (max-width: 767px) {
+  .bottom-footer ul {
+      display: table;
+      margin: 0 auto;
+      float:none !important;
+  }
+  .main-footer address {
+    display:table;
+    margin:auto;
+    text-align:center;
+  }
+  .gform_wrapper .top_label li.gfield.gf_left_half {
+    float: none;
+    width:100%
+  }
+}
+
+/*-------------------------------------------*\
+    Global CSS 
+\*-------------------------------------------*/
+
