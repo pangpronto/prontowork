@@ -415,6 +415,18 @@ Buttons
   }
 }
 
+.btn-custom4 {
+  .btn(transparent);
+  border:2px solid #262F63;
+  color: #262F63;
+  &:hover,&:active,&:focus { 
+    color:#fff;
+    background-color: #262F63;
+    border-color: #262F63;
+    border:2px solid #262F63;
+  }
+}
+
 /*-------------------------------------------*\
 Header
 \*-------------------------------------------*/
@@ -698,6 +710,9 @@ Media Queries
   div div > footer h2, h2, .h2 { 
     font-size: 30px;
   }
+  div div > footer h3, h3, .h3 {
+      font-size: 20px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -750,6 +765,9 @@ Media Queries
   }
   .footer-phone ul li + li:before {
     display:none;
+  }
+  div div > footer h3, h3, .h3 {
+      font-size: 18px;
   }
 }
 
