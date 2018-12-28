@@ -517,6 +517,9 @@ Hompage CSS
 			margin-top: 20px;
 			border: 1px solid #e0e0e0;
 			position: relative;
+			&:hover {
+				transform: translateY(-10px);
+			}
 		}
 		p {
 			margin-bottom: 10px;
@@ -656,8 +659,8 @@ Hompage CSS
 }
 
 .cta-footer-custom .well {
-    border-radius:0;
-    margin-top:20px;
+	border-radius:0;
+	margin-top:20px;
 }
 
 .cta-footer-custom {
@@ -721,59 +724,62 @@ Media Queries
 
 @media (min-width: 1200px) and (max-width: 1599px) {
 	.hp-widget a > div {
-        min-height: 370px;
+		min-height: 370px;
 	}
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-	.hp-widget a > div {
-        min-height: 430px;
+	.hp-banner-r1 {
+		min-height: 750px;
 	}
-    .hp-sec2::before {
-        left: -90px;
-        width: 50%;
-        overflow: hidden;
-    }
-    .hp-sec4 .well {
-        padding: 30px 180px 30px 30px;
-    }
-    .font-custom2 {
-        font-size: 42px;
-    }
-    .main-footer .social-footer a + a {
-        margin-left: 12px;
-    }
+	.hp-widget a > div {
+		min-height: 430px;
+	}
+	.hp-sec2::before {
+		left: -90px;
+		width: 50%;
+		overflow: hidden;
+	}
+	.hp-sec4 .well {
+		padding: 30px 180px 30px 30px;
+	}
+	.font-custom2 {
+		font-size: 42px;
+	}
+	.main-footer .social-footer a + a {
+		margin-left: 12px;
+	}
 }
 @media (max-width: 991px) {
 	header nav[role="navigation"] {
 		display: none;
 	}
 	h1, .h1 {
-        font-size: 36px;
-    }
-    
-    .hp-sec2:before {
-        display: none;
-    }
-    
-    .hp-sec2 > div .row {
-        min-height: auto;
-        margin-top: 80px;
-        margin-bottom:40px;
-    }
-    h2, .h2 {
-        font-size: 28px;
-    }
-    .hp-sec4 .well {
-        min-height: 233px;
-    }
-    .hp-testimonials ol.carousel-indicators {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .main-footer-row > div {
-        margin-top: 30px;
-    }
+		font-size: 36px;
+	}
+	
+	.hp-sec2:before {
+		display: none;
+	}
+	
+	.hp-sec2 > div .row {
+		min-height: auto;
+		margin-top: 80px;
+		margin-bottom:40px;
+	}
+	h2, .h2 {
+		font-size: 28px;
+	}
+	.hp-sec4 .well {
+		min-height: 233px;
+	}
+	.hp-testimonials ol.carousel-indicators {
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	.main-footer-row > div {
+		margin-top: 30px;
+	}
 }
 @media (max-width: 767px) {
 	.bottom-footer ul {
@@ -791,59 +797,70 @@ Media Queries
 		width: 100%;
 	}
 	header img.brand {
-        width: 100%;
-        max-width: 191px;
-        margin-top: 0;
-    }
-    h1, .h1 {
-        font-size: 26px;
-    }
-    .page-id-3036 .btn-primary {
-        min-width: auto;
-    }
-    h2, .h2 {
-        font-size: 22px;
-    }
-    .hp-sec2 .btn + .btn {
-        margin-left: 0;
-    }
-    .hp-widget a > div {
-        min-height: auto;
-    }
-    .hp-sec3 .learn-more {
-        position: static;
-    }
-    .hp-sec4 .well {
-        padding: 20px;
-        background-position: right;
-        position: relative;
-    }
-    
-    .hp-sec4 .well:before {
-        content: '';
-        width: 100%;
-        position: absolute;
-        height: 100%;
-        background: rgba(255,255,255,0.6);
-        left: 0;
-        top: 0;
-        z-index: 2;
-    }
-    
-    .hp-sec4 .well * {
-        position: relative;
-        z-index: 99;
-    }
-    
-    .hp-testimonials .well-testimonials {
-        padding: 20px;
-        margin-top:30px;
-        margin-bottom:30px;
-        position: static;
-    }
-    .font-custom2 {
-        font-size: 28px;
-    }   
+		width: 100%;
+		max-width: 191px;
+		margin-top: 0;
+	}
+	h1, .h1 {
+		font-size: 26px;
+	}
+	.page-id-3036 .btn-primary {
+		min-width: auto;
+	}
+	h2, .h2 {
+		font-size: 22px;
+	}
+	.hp-sec2 .btn + .btn {
+		margin-left: 0;
+	}
+	.hp-banner-r1 { 
+		min-height: 510px;
+	}
+	.well-banner {
+		padding: 20px;
+	}
+	.hp-banner-r1 > div > .row, 
+	.hp-banner3-r1 > div > .row {
+		padding-top: 20px;
+
+	}
+	.hp-widget a > div {
+		min-height: auto;
+	}
+	.hp-sec3 .learn-more {
+		position: static;
+	}
+	.hp-sec4 .well {
+		padding: 20px;
+		background-position: right;
+		position: relative;
+	}
+	
+	.hp-sec4 .well:before {
+		content: '';
+		width: 100%;
+		position: absolute;
+		height: 100%;
+		background: rgba(255,255,255,0.6);
+		left: 0;
+		top: 0;
+		z-index: 2;
+	}
+	
+	.hp-sec4 .well * {
+		position: relative;
+		z-index: 99;
+	}
+	
+	.hp-testimonials .well-testimonials {
+		padding: 20px;
+		margin-top:30px;
+		margin-bottom:30px;
+		position: static;
+	}
+	.font-custom2 {
+		font-size: 28px;
+	}   
 }
 
 /*-------------------------------------------*\
